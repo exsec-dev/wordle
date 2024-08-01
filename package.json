@@ -1,6 +1,7 @@
 {
   "name": "wordle",
   "version": "0.1.0",
+  "homepage": "/wordle",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.0",
