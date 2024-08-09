@@ -22,8 +22,9 @@ const InfoPanel = ({ text, variant = InfoPanelVariants.yellow, withIcon = false,
             target="blank"
             sx={{
                 display: 'flex',
-                padding: '5px 10px 5px 12px',
+                padding: '5px 11px 5px 13px',
                 gap: '6px', cursor: 'pointer',
+                minHeight: '32px',
                 alignItems: 'center',
                 bgcolor: variant === InfoPanelVariants.yellow ? 'var(--y-bg-accent-color)' : 'var(--g-bg-accent-color)',
                 borderRadius: '8px',
@@ -35,7 +36,7 @@ const InfoPanel = ({ text, variant = InfoPanelVariants.yellow, withIcon = false,
                 }
             }}
         >
-            <Typography fontSize={13} fontWeight={450} letterSpacing='0.04rem'>
+            <Typography fontSize={12.5} fontWeight={450} letterSpacing='0.04rem'>
                 {text}
             </Typography>
             {withIcon && <GitHub sx={{ fontSize: '15px' }}/>}

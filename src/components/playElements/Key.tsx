@@ -37,15 +37,10 @@ const Key = ({ value, variant = KeyVariants.alphabetic }: IKey) => {
                 bgcolor: 'var(--green-color)',
             },
             hover: { bgcolor: '#69b962' },
-            typographyStyle: {
-                fontSize: '18px',
-                letterSpacing: '0.03rem',
-                fontWeight: '650'
-            },
             displayed: (
                 <Typography sx={{
                     fontSize: '18px',
-                    letterSpacing: '0.03rem',
+                    letterSpacing: '0.01rem',
                     fontWeight: '650'
                 }}>
                     {value}
