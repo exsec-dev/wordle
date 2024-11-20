@@ -3,4 +3,4 @@
 
 Copy of NYTimes game.
 
-Demo: [exsec-projects.ru/wordle](https://exsec-projects.ru/wordle/)
+Demo: [exsec.dev/wordle](https://exsec.dev/wordle/)
