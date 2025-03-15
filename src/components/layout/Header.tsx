@@ -6,8 +6,8 @@ import LanguageButton from "../blocks/LanguageButton";
 import WordleIcon from "../../icons/WordleIcon";
 
 const textOpt = {
-    [LangOptions.english]: ['Made by @exsecantb', 'Based on @petergeorgas API'],
-    [LangOptions.russian]: ['Автор: @exsecantb', 'Основано на: @petergeorgas API'],
+    [LangOptions.english]: ['Made by @exsec-dev', 'Based on @petergeorgas API'],
+    [LangOptions.russian]: ['Автор: @exsec-dev', 'Основано на: @petergeorgas API'],
 }
 
 const Header = () => {
@@ -31,7 +31,7 @@ const Header = () => {
                     <InfoPanel
                         text={textOpt[lang][0]}
                         variant={InfoPanelVariants.green}
-                        href="https://github.com/exsecantb/wordle"
+                        href="https://github.com/exsec-dev/wordle"
                         withIcon
                     />
                     <InfoPanel
