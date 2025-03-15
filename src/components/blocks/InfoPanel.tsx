@@ -21,7 +21,6 @@ const InfoPanel = ({ text, variant = InfoPanelVariants.yellow, withIcon = false,
             href={href}
             target="blank"
             sx={{
-                display: 'flex',
                 padding: '5px 11px 5px 13px',
                 gap: '6px', cursor: 'pointer',
                 minHeight: '32px',

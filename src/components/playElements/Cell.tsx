@@ -9,8 +9,7 @@ interface ICell {
 
 const Cell = ({ value, isCorrect = false, isInWord = false }: ICell) => {
     return (
-        <Box sx={{
-            width: '65px', height: '65px',
+        <Box className="cell" sx={{
             bgcolor: isCorrect ? 'var(--green-color)' : (isInWord ? 'var(--yellow-color)' : 'var(--cell-color)'),
             borderRadius: '5px', pt: '8px',
             userSelect: 'none',

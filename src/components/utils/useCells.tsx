@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { useMutation } from "react-query";
-import Requests from "./Requests";
+import { Requests } from "./Requests";
 import { IResults } from "./types";
 
 interface ICells {
@@ -18,11 +18,13 @@ function useCells({ w, h }: ICells) {
     const [results, setResults] = useState<IResults[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [isError, setIsError] = useState<boolean>(false);
+
     const targetCell = useRef<ICurrentCell>({ row: 0, col: 0 });
+    const isBlocked = useRef<boolean>(false);
 
     const addNewCell = (value: string): void => {
         setIsError(false);
-        if (targetCell.current.col < w && !cells[targetCell.current.row][targetCell.current.col]) {
+        if (!isBlocked.current && targetCell.current.col < w && !cells[targetCell.current.row][targetCell.current.col]) {
             const newArr = [...cells];
             newArr[targetCell.current.row][targetCell.current.col] = value;
             setCells(newArr);
@@ -30,11 +32,11 @@ function useCells({ w, h }: ICells) {
                 targetCell.current = { row: targetCell.current.row, col: targetCell.current.col + 1 };
             }
         }
-    }
+    };
 
     const clearCell = (): void => {
         setIsError(false);
-        if (targetCell.current.col > 0) {
+        if (!isBlocked.current && targetCell.current.col > 0) {
             const newArr = [...cells];
             if (targetCell.current.col + 1 === w && !!cells[targetCell.current.row][targetCell.current.col]) {
                 newArr[targetCell.current.row][targetCell.current.col] = '';
@@ -44,26 +46,29 @@ function useCells({ w, h }: ICells) {
             }
             setCells(newArr);
         }
-    }
+    };
 
     const checkWord = useMutation(Requests.checkWord, {
         onSuccess: (data) => {
-            setIsLoading(false);
             setResults([...results, data?.data]);
             if (targetCell.current.row + 1 < h) {
                 targetCell.current = { row: targetCell.current.row + 1, col: 0 };
             }
+            setIsLoading(false);
+            isBlocked.current = false;
         },
         onError: (error) => {
             setIsLoading(false);
+            isBlocked.current = false;
             setIsError(true);
             console.error(error);
         }
     });
 
     const submitWord = async () => {
-        if (cells[targetCell.current.row].filter(el => !!el).length === w) {
+        if (!isBlocked.current && cells[targetCell.current.row].filter(el => !!el).length === w) {
             setIsLoading(true);
+            isBlocked.current = true;
             await checkWord.mutateAsync(cells[targetCell.current.row].join(''));
         } else {
             setIsError(true);

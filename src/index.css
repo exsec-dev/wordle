@@ -24,12 +24,37 @@ header {
 }
 
 .field {
-    padding: 40px 32px;
+    padding: 30px 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     height: 100%;
-    justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    gap: 40px;
+}
+
+#keyboard {
+    display: none;
+}
+
+a {
+    display: none;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+}
+
+#progress-bar {
+    height: 350px;
+}
+
+#about {
+    font-size: 24px;
+}
+
+#description {
+    font-size: 14px;
 }
 
 @keyframes progress1 {
@@ -63,5 +88,53 @@ header {
     100% {
         top: 107%;
         bottom: -8%;
+    }
+}
+
+
+@media only screen and (min-width: 470px) {
+    .cell {
+        width: 65px;
+        height: 65px;
+    }
+
+    #progress-bar {
+        height: 440px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .field {
+        flex-direction: row;
+    }
+
+    #info {
+        height: 440px;
+    }
+
+    a {
+        display: flex;
+    }
+
+    #about {
+        font-size: 26px;
+    }
+
+    #description {
+        font-size: 15px;
+    }
+
+    #keyboard-button {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #keyboard {
+        display: flex;
+    }
+
+    .field {
+        gap: 100px;
     }
 }

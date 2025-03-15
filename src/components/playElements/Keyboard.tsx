@@ -18,8 +18,8 @@ const Keyboard = () => {
     ];
 
     return (
-        <Box sx={{
-            display: 'flex', gap: '12px', width: 'fit-content',
+        <Box id="keyboard" sx={{
+            gap: '12px', width: 'fit-content',
             flexDirection: 'column', justifyContent: 'flex-end',
             border: '1px solid var(--border-color)', borderRadius: '12px',
             p: '25px', height: 'fit-content'
